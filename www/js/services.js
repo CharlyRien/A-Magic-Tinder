@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('starter.services', ['ngResource'])
 
     .factory('Chats', function () {
         // Might use a resource here that returns a JSON array
@@ -48,7 +48,7 @@ angular.module('starter.services', [])
             }
         };
     })
-    .factory('Events', function () {
+    .factory('Events', function (EventsResource) {
         // Might use a resource here that returns a JSON array
 
         // Some fake testing data

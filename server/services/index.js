@@ -1,3 +1,4 @@
 module.exports = {
-    misfortuneWheel : require('./misfortuneWheel')
+    misfortuneWheel : require('./misfortuneWheel'),
+    events : require('./events')
 };
