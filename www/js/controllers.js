@@ -10,7 +10,9 @@ angular.module('starter.controllers', [])
     })
 
     .controller('EventDetailCtrl', function ($scope, $stateParams, Events) {
-        $scope.event = Events.get({eventId : $stateParams.eventId});
+       Events.get({eventId : $stateParams.eventId}).then(function(_data){
+            $scope.event = _data.data;
+       });
     })
 
     .controller('AccountCtrl', function ($scope) {

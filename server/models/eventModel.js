@@ -4,7 +4,7 @@ var EventSchema = new mongoose.Schema({
     name: String,
     description : String,
     adresse : String,
-    telephone: Number,
+    telephone: String,
     date_debut : Date,
     date_fin : Date,
     updated_at: { type: Date, default: Date.now }

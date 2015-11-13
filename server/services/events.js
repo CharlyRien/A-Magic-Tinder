@@ -20,7 +20,7 @@ exports.getEvents = function (fn) {
 };
 
 exports.getEvent = function (result,fn) {
-    eventModel.findOne({'_id' : result._id}, function (err, data) {
+    eventModel.findOne({'_id' : result}, function (err, data) {
         if (err) return fn(new Error('Could not find this event'));
         fn(null, data);
     });

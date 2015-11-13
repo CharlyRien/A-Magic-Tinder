@@ -8,7 +8,7 @@ angular.module('starter.services', [])
                     });
             },
             get: function (ObjectId) {
-                $http({
+               return $http({
                     url: "http://10.33.1.189:5000/api/event/"+ ObjectId.eventId,
                     method: "GET",
                     params : {
