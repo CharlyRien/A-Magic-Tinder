@@ -10,7 +10,7 @@ var Generic = require('./generic')
 //    });
 //};
 
-exports.eventsGet = function (req, res) {
+exports.getEvents = function (req, res) {
     eventService.getEvents(function (err, result) {
         Generic.computeResponse(res, err, result);
     });
@@ -28,5 +28,11 @@ exports.eventsGet = function (req, res) {
 exports.addEvent = function(req,res){
     eventService.addEvent(req.body, function (err, result) {
         Generic.computeResponse(res, err, result);
-    })
+    });
+};
+
+exports.getEvent = function(req,res){
+	eventService.getEvent(req.body, function (err, result) {
+		Generic.computeResponse(res, err, result);
+	});
 };
