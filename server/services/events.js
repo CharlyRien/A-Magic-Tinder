@@ -19,8 +19,8 @@ exports.getEvents = function (fn) {
     })
 };
 
-exports.getEvent = function (result,callback) {
-    eventModel.findOne ({'_id' : result._id}, function (err, data) {
+exports.getEvent = function (result) {
+    eventModel.findOne({'_id' : result._id}, function (err, data) {
         if (err) return fn(new Error('Could not find this event'));
         fn(null, data);
     });
