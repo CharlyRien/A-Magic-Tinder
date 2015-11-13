@@ -3,7 +3,7 @@ angular.module('starter.services', [])
         // Might use a resource here that returns a JSON array
         //
         //// Some fake testing data
-        var events = eventResource.get();
+        var events = eventResource.query();
 
         return {
             all: function () {
