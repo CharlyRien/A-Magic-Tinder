@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','app.resources.events'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -81,12 +81,4 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','a
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/tab/dash');
 
-    });
-
-angular.module('app.resources.events', ['ngResource'])
-    .factory('eventResource', function ($resource) {
-        return $resource('/api/events', {}, {
-            'get': {method: 'GET'},
-            'add': {method: 'POST'}
-        });
     });

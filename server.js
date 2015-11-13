@@ -9,7 +9,7 @@ var express = require('express')
 
 
 // Initialize MongoDB connection
-var db_uri = 'mongodb://localhost:27017/gametinder';
+var db_uri = 'mongodb://10.33.2.115:27017/gametinder';
 mongoose.connect(db_uri);
 
 // Initialize rest api
@@ -25,6 +25,12 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(session({secret: 'supernova', saveUninitialized: true, resave: true}));
 app.use(express.static(__dirname + '/www'));
 app.use('/api', api);
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
 process.on('uncaughtException', function (err) {
     console.log(err.stack);

@@ -15,6 +15,7 @@ exports.addEvent = function(req,res){
 };
 
 exports.getEvent = function(req,res){
+    console.log(req.body);
 	eventService.getEvent(req.body, function (err, result) {
 		Generic.computeResponse(res, err, result);
 	});

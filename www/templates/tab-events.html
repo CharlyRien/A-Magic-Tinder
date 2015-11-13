@@ -1,10 +1,10 @@
 <ion-view view-title="Events">
     <ion-content>
         <ion-list>
-            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="event in events" type="item-text-wrap" href="#/tab/events/{{event.id}}">
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="event in events" type="item-text-wrap" href="#/tab/events/{{event._id}}">
                 <img ng-src="{{event.image}}">
                 <h2>{{event.name}}</h2>
-                <p>Adresse : {{event.adress}}</p>
+                <p>Adresse : {{event.adresse}}</p>
                 <p>Date de debut : {{event.date_debut}}</p>
                 <p>Date de fin : {{event.date_fin}}</p>
                 <i class="icon ion-chevron-right icon-accessory"></i>

@@ -4,10 +4,10 @@ exports.addEvent = function (result, callback) {
     var releaseMongoDB = new eventModel({
         name: result.name,
         description: result.description,
-        adress: result.adress,
-        phone:result.phone,
-        date_start : result.date_start,
-        date_end : result.date_end
+        adresse: result.adresse,
+        telephone: result.telephone,
+        date_debut : result.date_debut,
+        date_fin : result.date_fin
     });
     releaseMongoDB.save(callback);
 };
@@ -19,7 +19,7 @@ exports.getEvents = function (fn) {
     })
 };
 
-exports.getEvent = function (result) {
+exports.getEvent = function (result,fn) {
     eventModel.findOne({'_id' : result._id}, function (err, data) {
         if (err) return fn(new Error('Could not find this event'));
         fn(null, data);
