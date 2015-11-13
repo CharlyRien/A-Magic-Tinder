@@ -16,7 +16,7 @@ exports.getEvents = function (fn) {
     eventModel.find({}, function (err, data) {
         if (err) return fn(new Error('Could not find events'));
         fn(null, data);
-    });
+    })
 };
 
 exports.getEvent = function (result,callback) {
