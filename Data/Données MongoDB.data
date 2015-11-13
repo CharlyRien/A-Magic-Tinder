@@ -4,3 +4,10 @@ db.events.insert({	'name' : 'League Of Legends',
 					'adresse' : '50 chemin pourrie 00000 NazeVille',
 					'date_debut' : new Date("<2015-12-01>"),
 					'date_fin' : new Date("<2015-12-02>")});
+
+db.events.insert({	'name' : 'COunter Strike',
+					'description' : 'Super soirée CS aujourd\'hui en 5v5 perso, venez vous faire plaisir sur vos armes preferes pour une nuit de troll !',
+					'telephone' : 0303030303,
+					'adresse' : '50 chemin pourrie 00000 NazeVille',
+					'date_debut' : new Date("<2015-12-02>"),
+					'date_fin' : new Date("<2015-12-03>")});
