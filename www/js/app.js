@@ -49,26 +49,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                     }
                 }
             })
-
-            .state('tab.chats', {
-                url: '/chats',
-                views: {
-                    'tab-chats': {
-                        templateUrl: 'templates/tab-chats.html',
-                        controller: 'ChatsCtrl'
-                    }
-                }
-            })
-            .state('tab.chat-detail', {
-                url: '/chats/:chatId',
-                views: {
-                    'tab-chats': {
-                        templateUrl: 'templates/chat-detail.html',
-                        controller: 'ChatDetailCtrl'
-                    }
-                }
-            })
-
             .state('tab.events', {
                 url: '/events',
                 views: {
@@ -101,4 +81,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/tab/dash');
 
+    });
+angular.module('app.resources.events', ['ngResource'])
+
+    .factory('eventResource', function ($resource) {
+        return $resource('/api/events', {}, {
+            'get': {method: 'GET'},
+            'add': {method: 'POST'}
+        });
     });
