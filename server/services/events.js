@@ -1,4 +1,4 @@
-var eventModel = require('..').models.events;
+var eventModel = require('../models/eventModel');
 
 exports.addEvent = function (result, callback) {
     var releaseMongoDB = new eventModel({

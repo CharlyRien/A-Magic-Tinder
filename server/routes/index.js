@@ -6,7 +6,4 @@ exports.configure = function (app) {
     app.get("/events", events.getEvents);
     app.post("/events", events.addEvent);
     app.post("/event/:id", events.getEvent);
-
-    
-
 };

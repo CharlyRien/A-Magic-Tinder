@@ -24,6 +24,7 @@ app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(session({secret: 'supernova', saveUninitialized: true, resave: true}));
 app.use(express.static(__dirname + '/app'));
+app.use('/api', api);
 
 process.on('uncaughtException', function (err) {
     console.log(err.stack);
