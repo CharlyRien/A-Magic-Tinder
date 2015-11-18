@@ -7,7 +7,8 @@ exports.addEvent = function (result, callback) {
         adresse: result.adresse,
         telephone: result.telephone,
         date_debut : result.date_debut,
-        date_fin : result.date_fin
+        date_fin : result.date_fin,
+        image : result.image
     });
     releaseMongoDB.save(callback);
 };

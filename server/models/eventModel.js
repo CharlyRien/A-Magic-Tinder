@@ -7,6 +7,7 @@ var EventSchema = new mongoose.Schema({
     telephone: String,
     date_debut : Date,
     date_fin : Date,
+    image : String,
     updated_at: { type: Date, default: Date.now }
 });
 
