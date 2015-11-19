@@ -77,18 +77,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                     }
                 }
             })
-
             .state('tab.add-event', {
                 url: '/account/add',
                 views: {
-                    'add-event': {
+                    'tab-account': {
                         templateUrl: 'templates/add-event.html',
                         controller: 'AccountCtrl'
                     }
                 }
             });
-
-
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/tab/dash');
 

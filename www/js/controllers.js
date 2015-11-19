@@ -16,8 +16,6 @@ angular.module('starter.controllers', [])
     })
 
     .controller('AccountCtrl', function ($scope) {
-        $scope.user = true;
-
         $scope.createProfil = function(username , password){
           return null;
         }
