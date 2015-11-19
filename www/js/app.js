@@ -79,7 +79,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             })
 
             .state('tab.add-event', {
-                url: '/events/add',
+                url: '/account/add',
                 views: {
                     'add-event': {
                         templateUrl: 'templates/add-event.html',
