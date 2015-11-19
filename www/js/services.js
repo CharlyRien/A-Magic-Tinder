@@ -19,7 +19,7 @@ angular.module('starter.services', [])
             },
             add: function (ObjectId) {
                return $http({
-                    url: BASE_URL + "/api/events",
+                    url: BASE_URL + "/api/event",
                     method: "POST",
                     params : {
                         object:ObjectId
