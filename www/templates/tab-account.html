@@ -1,9 +1,24 @@
-<ion-view view-title="Account">
+<ion-view view-title="Profil">
   <ion-content>
     <ion-list>
      <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/events/add">
       <h2>Créer un nouvel évènement</h2>
      </ion-item>
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input ng-model="username" type="text">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input ng-model="password" type="password">
+        </label>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive" ng-click="createProfil(username,password)">Create Profile</button>
+        </div>
+
+      <div class="padding">
+        <button type="submit" class="button button-block button-positive">Connection</button>
+      </div>
     </ion-list>
   </ion-content>
 </ion-view>

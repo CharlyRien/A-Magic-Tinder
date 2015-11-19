@@ -16,7 +16,9 @@ angular.module('starter.controllers', [])
     })
 
     .controller('AccountCtrl', function ($scope) {
-        $scope.settings = {
-            enableFriends: true
-        };
+        $scope.user = true;
+
+        $scope.createProfil = function(username , password){
+          return null;
+        }
     });

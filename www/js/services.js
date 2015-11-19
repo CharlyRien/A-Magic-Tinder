@@ -27,4 +27,7 @@ angular.module('starter.services', [])
                 });
             }
         };
-    });
+    })
+      .factory('Profil', function ($http) {
+    return null;
+  })
