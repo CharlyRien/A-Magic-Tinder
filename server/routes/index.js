@@ -9,6 +9,9 @@ exports.configure = function (app) {
   app.get("/events", events.getEvents);
   app.post("/events", events.addEvent);
 
+//API user by events
+  app.get("user/userId/getEvents", account.getProfile);
+
   //app.get('/login', function (req, res) {
   //  req.login();
   //});
