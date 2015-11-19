@@ -36,8 +36,6 @@ app.all('*', function (req, res, next) {
 });
 app.use('/api', api);
 
-
-
 process.on('uncaughtException', function (err) {
   console.log(err.stack);
 });
