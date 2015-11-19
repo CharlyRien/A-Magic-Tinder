@@ -15,9 +15,13 @@ angular.module('starter.controllers', [])
        });
     })
 
-    .controller('AccountCtrl', function ($scope) {
+    .controller('AccountCtrl', function ($scope, Events) {
         $scope.user = true;
 
+        $scope.submit = function($monEvent) {
+          console.log($monEvent);
+          Events.add($monEvent);
+        }
         $scope.createProfil = function(username , password){
           return null;
         }

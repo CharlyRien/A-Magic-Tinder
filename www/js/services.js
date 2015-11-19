@@ -17,14 +17,11 @@ angular.module('starter.services', [])
                     }
                 });
             },
-            add: function (ObjectId) {
-               return $http({
-                    url: BASE_URL + "/api/event",
-                    method: "POST",
-                    params : {
-                        object:ObjectId
-                    }
-                });
+            add: function (monEvent) {
+                console.log(monEvent);
+
+               return $http.post(BASE_URL + "/api/events",
+                    monEvent);
             }
         };
     })

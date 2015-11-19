@@ -1,9 +1,79 @@
 <ion-view view-title="AddEvent">
-  <ion-content>
-    <ion-list>
-     <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap">
-      <h2>Ceci sera un formulaire</h2>
-     </ion-item>
-    </ion-list>
-  </ion-content>
+ <ion-content>
+    <form name="myForm" >
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Nom de l'évènement</span>
+                <input type="text" name="eventname" ng-model="event.name" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Description de l'évènement</span>
+                <input type="text" name="description" ng-model="event.description">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Téléphone de l'organisateur</span>
+                <input type="text" name="telephone" ng-model="event.telephone" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Adresse de l'évènement</span>
+                <input type="text" name="adresse" ng-model="event.adresse" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Début de l'évènement</span>
+                <input type="datetime-local" name="date_debut" ng-model="event.date_debut" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Début de l'évènement</span>
+                <input type="datetime-local" name="date_fin" ng-model="event.date_fin" required>
+            </label>
+            <label class="item item-radio">
+            	<!--<img ng-src="/img/CSGO.jpg" style="width: 64px; height: 64px">-->
+    			<input type="radio" name="group">
+			    <ion-item>
+			      Go
+			    </ion-item>
+			    <i class="radio-icon ion-checkmark"></i>
+			  </label>
+			  <label class="item item-radio">
+            	<!--<img ng-src="/img/League_Of_Legends.jpg" style="width: 64px; height: 64px">-->
+    			<input type="radio" name="group">
+			    <ion-item>
+			      Go
+			    </ion-item>
+			    <i class="radio-icon ion-checkmark"></i>
+			  </label>
+			  <label class="item item-radio">
+            	<!--<img ng-src="/img/Magic the gathering.jpg" style="width: 64px; height: 64px">-->
+    			<input type="radio" name="group">
+			    <ion-item>
+			      Go
+			    </ion-item>
+			    <i class="radio-icon ion-checkmark"></i>
+			  </label>
+
+            
+        </div>
+        <div class="padding">
+            <p ng-show="myForm.eventname.$error.required">* Le nom de l'évènement est obligatoire</p>
+            <p ng-show="myForm.telephone.$error.required">* Le numéro d'un organisateur est obligatoire</p>
+            <p ng-show="myForm.adresse.$error.required">* L'adresse de l'évènement est obligatoire</p>
+            <p ng-show="myForm.date_debut.$error.required">* La date de début est obligatoire</p>
+            <p ng-show="myForm.date_fin.$error.required">* La date de fin est obligatoire</p>
+
+
+<!--	Retrouvez plus simplement des exmples pour faire des verifs de form	
+		
+
+
+
+            <p ng-show="myForm.username.$invalid && !myForm.username.$pristine">* Username must be an email address</p>
+            <p ng-show="myForm.username.$error.minlength">* Username must be longer than 5 characters</p>
+            <p ng-show="myForm.password.$error.required">* Password is required</p>
+            <p ng-show="myForm.password.$error.minlength">* Password must be longer than 6 characters</p>
+        </div> -->
+        <div class="padding">
+            <button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit(event)">Créer l'évènement</button>
+        </div>
+    </form>
+</ion-content>
 </ion-view>
