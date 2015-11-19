@@ -1,31 +1,28 @@
 var express = require('express')
   , mongoose = require('mongoose')
-  , routes = require('./server/routes')
   , cookieParser = require('cookie-parser')
   , bodyParser = require('body-parser')
   , logger = require('morgan')
+  ,routes = require('./server/routes')
+  , passport = require('passport')
   , methodOverride = require('method-override')
   , session = require('express-session')
   ;
 
 
 // Initialize MongoDB connection
-var db_uri = 'mongodb://localhost:27017/gametinder';
+var db_uri = 'mongodb://10.33.2.128:27017/gametinder';
 mongoose.connect(db_uri);
 
 // Initialize rest api
 var api = express();
+
 routes.configure(api);
 
 // Initialize server
 var app = module.exports = express();
 app.use(cookieParser());
 app.use(logger('dev'));
-app.use(require('express-session')({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false
-}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
