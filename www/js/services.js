@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
     .factory('Events', function ($http) {
-        var BASE_URL = "http://10.33.1.189:5000";
+        var BASE_URL = "http://10.33.2.115:5000";
         return {
             all: function () {
                     var url = BASE_URL + "/api/events";
@@ -14,6 +14,15 @@ angular.module('starter.services', [])
                     method: "GET",
                     params : {
                         id : ObjectId.eventId
+                    }
+                });
+            },
+            add: function (ObjectId) {
+               return $http({
+                    url: BASE_URL + "/api/events",
+                    method: "POST",
+                    params : {
+                        object:ObjectId
                     }
                 });
             }
