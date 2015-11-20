@@ -11,9 +11,8 @@ exports.configure = function (app) {
 
   // API EventByUser
   app.get("/user/:userId", account.getProfile);
+  app.post("/user", account.addProfile);
 
-  // API User
-  app.post("/user", account.checkConnection);
 
   //app.get('/login', function (req, res) {
   //  req.login();

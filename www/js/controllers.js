@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
     });
   })
 
-  .controller('AccountCtrl', function ($scope, $stateParams, EventsByUser,Events,User) {
+  .controller('AccountCtrl', function ($scope, $stateParams, EventsByUser, Events, User) {
 
     $scope.event = {
       image: ''
@@ -37,8 +37,10 @@ angular.module('starter.controllers', [])
     $scope.submit = function ($monEvent) {
       Events.add($monEvent);
     }
-    $scope.createProfil = function (username, password) {
-      return null;
+    $scope.addUser = function (user) {
+      User.addUser(user).then(function (_data_promise) {
+        $scope.messageAdd = "Inscription effectuée";
+      });
     }
 
 

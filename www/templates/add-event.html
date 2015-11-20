@@ -31,11 +31,11 @@
                    ng-model="event.image">
                 <img ng-src= "{{ item.text }}" style="width: 64px; height: 64px">
             </ion-radio>
-            
 
 
 
-            
+
+
         </div>
         <div class="padding">
             <p ng-show="myForm.eventname.$error.required">* Le nom de l'évènement est obligatoire</p>
@@ -45,16 +45,16 @@
             <p ng-show="myForm.date_fin.$error.required">* La date de fin est obligatoire</p>
 
 
-<!--	Retrouvez plus simplement des exmples pour faire des verifs de form	
-		
+<!--	Retrouvez plus simplement des exmples pour faire des verifs de form
+
 
 
 
             <p ng-show="myForm.username.$invalid && !myForm.username.$pristine">* Username must be an email address</p>
             <p ng-show="myForm.username.$error.minlength">* Username must be longer than 5 characters</p>
             <p ng-show="myForm.password.$error.required">* Password is required</p>
-            <p ng-show="myForm.password.$error.minlength">* Password must be longer than 6 characters</p>
-        </div> -->
+            <p ng-show="myForm.password.$error.minlength">* Password must be longer than 6 characters</p>-->
+        </div>
         <div class="padding">
             <button type="button" class="button button-block button-positive" ng-click="submit(event)">Créer l'évènement</button>
         </div>

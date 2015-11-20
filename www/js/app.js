@@ -86,6 +86,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                     }
                 }
             })
+          .state('tab.inscri-user', {
+            url: '/account/inscri-user',
+            views: {
+              'tab-account': {
+                templateUrl: 'templates/inscri-user.html',
+                controller: 'AccountCtrl'
+              }
+            }
+          })
           .state('tab.get-events-user', {
             url: '/account/:userId/getEvents',
             views: {

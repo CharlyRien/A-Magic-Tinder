@@ -1,9 +1,10 @@
 var accountModel = require('../models/accountModel');
 
 exports.addProfile = function (result, callback) {
+  console.log(result);
   var releaseMongoDB = new accountModel({
-    username: result.username,
-    password: result.password,
+    username: result.mail,
+    password: result.mdp,
     events:result.events
   });
   releaseMongoDB.save(callback);
