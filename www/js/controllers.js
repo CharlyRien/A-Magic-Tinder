@@ -15,7 +15,13 @@ angular.module('starter.controllers', [])
        });
     })
 
-    .controller('AccountCtrl', function ($scope) {
+    .controller('AccountCtrl', function ($scope, $stateParams, EventsByUser) {
+
+    EventsByUser.getEventsByUser({userId : $stateParams.userId}).then(function(_data){
+      $scope.user= _data.data;
+    });
+
+
         $scope.createProfil = function(username , password){
           return null;
         }

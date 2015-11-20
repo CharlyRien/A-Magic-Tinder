@@ -1,0 +1,12 @@
+<ion-view view-title="Mon Compte">
+  <ion-content>
+    <ion-list>
+      <ion-item type="item-text-wrap">
+        <h2>{{user.username}}</h2>
+      </ion-item>
+      <ion-item type="item-text-wrap" ng-repeat="eventUser in user.event">
+        <h2>{{eventUser.name}}</h2>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

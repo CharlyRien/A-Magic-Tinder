@@ -17,17 +17,23 @@ angular.module('starter.services', [])
           }
         });
       },
-      add: function (ObjectId) {
-        return $http({
-          url: BASE_URL + "/api/event",
-          method: "POST",
-          params: {
-            object: ObjectId
-          }
-        });
+      add: function (Object) {
+        return $http.post(
+          BASE_URL + "/api/events", Object);
       }
     };
   })
-  .factory('Profil', function ($http) {
-    return null;
+  .factory('EventsByUser', function ($http) {
+    var BASE_URL = "http://10.33.2.128:5000";
+    return {
+      getEventsByUser: function (ObjectIdUser){
+        return $http({
+          url: BASE_URL + "/api/user/" + ObjectIdUser.userId,
+          method: "GET",
+          params: {
+            id: ObjectIdUser.userId
+          }
+        });
+      }
+    }
   });
