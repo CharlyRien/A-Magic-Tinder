@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e00e9143-18cd-4bc9-bdca-363d956b6129" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-account.html" afterPath="$PROJECT_DIR$/www/templates/tab-account.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-dash.html" afterPath="$PROJECT_DIR$/www/templates/tab-dash.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="A-Magic-Tinder.iws" />
@@ -650,7 +648,7 @@
       <workItem from="1447435016430" duration="24000" />
       <workItem from="1447878426011" duration="5237000" />
       <workItem from="1447920055914" duration="34117000" />
-      <workItem from="1448029157219" duration="1329000" />
+      <workItem from="1448029157219" duration="1345000" />
     </task>
     <task id="LOCAL-00001" summary="events service API">
       <created>1447413546082</created>
@@ -742,11 +740,17 @@
       <option name="project" value="LOCAL" />
       <updated>1448032549059</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="corrections">
+      <created>1448032816391</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1448032816391</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67415000" />
+    <option name="totallyTimeSpent" value="67431000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -804,7 +808,8 @@
     <MESSAGE value="change model account" />
     <MESSAGE value="fix accounts database" />
     <MESSAGE value="redirection" />
-    <option name="LAST_COMMIT_MESSAGE" value="redirection" />
+    <MESSAGE value="corrections" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrections" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
