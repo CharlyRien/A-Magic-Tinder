@@ -23,33 +23,17 @@
                 <input type="datetime-local" name="date_debut" ng-model="event.date_debut" required>
             </label>
             <label class="item item-input">
-                <span class="input-label">Début de l'évènement</span>
+                <span class="input-label">Fin de l'évènement</span>
                 <input type="datetime-local" name="date_fin" ng-model="event.date_fin" required>
             </label>
-            <label class="item item-radio">
-            	<!--<img ng-src="/img/CSGO.jpg" style="width: 64px; height: 64px">-->
-    			<input type="radio" name="group">
-			    <ion-item>
-			      Go
-			    </ion-item>
-			    <i class="radio-icon ion-checkmark"></i>
-			  </label>
-			  <label class="item item-radio">
-            	<!--<img ng-src="/img/League_Of_Legends.jpg" style="width: 64px; height: 64px">-->
-    			<input type="radio" name="group">
-			    <ion-item>
-			      Go
-			    </ion-item>
-			    <i class="radio-icon ion-checkmark"></i>
-			  </label>
-			  <label class="item item-radio">
-            	<!--<img ng-src="/img/Magic the gathering.jpg" style="width: 64px; height: 64px">-->
-    			<input type="radio" name="group">
-			    <ion-item>
-			      Go
-			    </ion-item>
-			    <i class="radio-icon ion-checkmark"></i>
-			  </label>
+            <ion-radio ng-repeat="item in clientSideList"
+                   ng-value="item.value"
+                   ng-model="event.image">
+                <img ng-src= "{{ item.text }}" style="width: 64px; height: 64px">
+            </ion-radio>
+            
+
+
 
             
         </div>
@@ -72,7 +56,7 @@
             <p ng-show="myForm.password.$error.minlength">* Password must be longer than 6 characters</p>
         </div> -->
         <div class="padding">
-            <button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit(event)">Créer l'évènement</button>
+            <button type="button" class="button button-block button-positive" ng-click="submit(event)">Créer l'évènement</button>
         </div>
     </form>
 </ion-content>
