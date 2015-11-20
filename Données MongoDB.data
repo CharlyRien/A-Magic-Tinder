@@ -13,3 +13,5 @@ db.events.insert({	'name' : 'Counter Strike',
 					'date_debut' : new Date("<2015-12-02>"),
 					'date_fin' : new Date("<2015-12-03>"),
                     'image' : '../img/CSGO.jpg'});
+
+db.account.insert({ username : 'test@test.com', password : 'pass' })

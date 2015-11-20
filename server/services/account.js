@@ -4,9 +4,7 @@ exports.addProfile = function (result, callback) {
   var releaseMongoDB = new accountModel({
     username: result.username,
     password: result.password,
-    events:[
-      {type: Schema.Types.ObjectId, ref: 'Events'}
-    ]
+    events:result.events
   });
   releaseMongoDB.save(callback);
 };
