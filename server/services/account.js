@@ -15,3 +15,14 @@ exports.getProfileById = function (result, fn) {
     fn(null, data);
   });
 };
+
+exports.checkConnection = function (result, fn) {
+  accountModel.find({},function(err,data) {
+    console.log(data);
+  });
+  accountModel.findOne({'username': result.username}, function (err, data) {
+    if (err) return fn(new Error('Utilisateur Inexistant'));
+    if (data.password != result.password)  return fn(new Error('Mauvais mot de passe'));
+    return fn(null, data);
+  });
+};

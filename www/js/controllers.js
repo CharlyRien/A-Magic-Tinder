@@ -15,17 +15,11 @@ angular.module('starter.controllers', [])
     });
   })
 
-  .controller('AccountCtrl', function ($scope, $stateParams, EventsByUser) {
+  .controller('AccountCtrl', function ($scope, $stateParams, EventsByUser,Events,User) {
 
-    EventsByUser.getEventsByUser({userId: $stateParams.userId}).then(function (_data) {
-      $scope.user = _data.data;
-    });
-  })
-  .controller('AccountCtrl', function ($scope, Events) {
     $scope.event = {
       image: ''
     };
-    $scope.user = true;
     $scope.clientSideList = [
       {text: "img/CSGO.jpg", value: "img/CSGO.jpg"},
       {text: "img/League_Of_Legends.jpg", value: "img/League_Of_Legends.jpg"},
@@ -34,11 +28,21 @@ angular.module('starter.controllers', [])
       {text: "img/manette.jpeg", value: "img/manette.jpeg"},
       {text: "img/pc.png", value: "img/pc.png"}
     ];
-
+    $scope.connection = function ($monUser) {
+      User.checkConnection($monUser).then(function (_data) {
+        $scope.user = _data.data;
+        console.log($scope.user);
+      });
+    }
     $scope.submit = function ($monEvent) {
       Events.add($monEvent);
     }
     $scope.createProfil = function (username, password) {
       return null;
     }
+
+
+    EventsByUser.getEventsByUser({userId: $stateParams.userId}).then(function (_data) {
+      $scope.user = _data.data;
+    });
   });

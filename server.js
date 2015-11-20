@@ -11,7 +11,7 @@ var express = require('express')
 
 
 // Initialize MongoDB connection
-var db_uri = 'mongodb://10.33.2.128:27017/gametinder';
+var db_uri = 'mongodb://10.33.2.115:27017/gametinder';
 mongoose.connect(db_uri);
 
 // Initialize rest api

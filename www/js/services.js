@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
   .factory('Events', function ($http) {
-    var BASE_URL = "http://10.33.2.128:5000";
+    var BASE_URL = "http://10.33.2.115:5000";
     return {
       all: function () {
         var url = BASE_URL + "/api/events";
@@ -24,9 +24,9 @@ angular.module('starter.services', [])
     };
   })
   .factory('EventsByUser', function ($http) {
-    var BASE_URL = "http://10.33.2.128:5000";
+    var BASE_URL = "http://10.33.2.115:5000";
     return {
-      getEventsByUser: function (ObjectIdUser){
+      getEventsByUser: function (ObjectIdUser) {
         return $http({
           url: BASE_URL + "/api/user/" + ObjectIdUser.userId,
           method: "GET",
@@ -36,4 +36,14 @@ angular.module('starter.services', [])
         });
       }
     }
-  });
+  })
+      .factory('User', function ($http) {
+    var BASE_URL = "http://10.33.2.115:5000";
+      return {
+        checkConnection: function (User) {
+          return $http.post(
+            BASE_URL + "/api/user",User);
+
+        }
+      }
+    });

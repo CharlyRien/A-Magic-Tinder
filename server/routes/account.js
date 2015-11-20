@@ -20,3 +20,10 @@ exports.deleteProfile = function(req,res){
     Generic.computeResponse(res, err, result);
   });
 };
+
+
+exports.checkConnection = function(req,res) {
+  accountService.checkConnection(req.body,function(err,result) {
+    Generic.computeResponse(res,err,result);
+  });
+};

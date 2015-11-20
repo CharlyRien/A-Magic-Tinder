@@ -12,6 +12,9 @@ exports.configure = function (app) {
   // API EventByUser
   app.get("/user/:userId", account.getProfile);
 
+  // API User
+  app.post("/user", account.checkConnection);
+
   //app.get('/login', function (req, res) {
   //  req.login();
   //});
