@@ -4,14 +4,13 @@ var express = require('express')
   , bodyParser = require('body-parser')
   , logger = require('morgan')
   , routes = require('./server/routes')
-  , passport = require('passport')
   , methodOverride = require('method-override')
   , session = require('express-session')
   ;
 
 
 // Initialize MongoDB connection
-var db_uri = 'mongodb://10.33.2.115:27017/gametinder';
+var db_uri = 'mongodb://10.33.2.128:27017/gametinder';
 mongoose.connect(db_uri);
 
 // Initialize rest api

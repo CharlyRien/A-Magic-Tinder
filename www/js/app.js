@@ -82,7 +82,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 views: {
                     'tab-account': {
                         templateUrl: 'templates/add-event.html',
-                        controller: 'AccountCtrl'
+                        controller: 'AddEventCtrl'
                     }
                 }
             })
@@ -96,7 +96,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             }
           })
           .state('tab.get-events-user', {
-            url: '/account/:userId/getEvents',
+            url: '/account/:userId',
             views: {
               'tab-account': {
                 templateUrl: 'templates/tab-user.html',

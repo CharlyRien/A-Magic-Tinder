@@ -15,11 +15,17 @@ angular.module('starter.controllers', [])
     });
   })
 
-  .controller('AccountCtrl', function ($scope, $stateParams, EventsByUser, Events, User) {
-
+  .controller('AddEventCtrl', function($scope, Events){
+    $scope.submit = function ($monEvent) {
+      Events.add($monEvent);
+    };
     $scope.event = {
       image: ''
     };
+  })
+  .controller('AccountCtrl', function ($scope, $stateParams, EventsByUser, User) {
+
+
     $scope.clientSideList = [
       {text: "img/CSGO.jpg", value: "img/CSGO.jpg"},
       {text: "img/League_Of_Legends.jpg", value: "img/League_Of_Legends.jpg"},
@@ -30,19 +36,16 @@ angular.module('starter.controllers', [])
     ];
     $scope.connection = function ($monUser) {
       User.checkConnection($monUser).then(function (_data) {
+        console.log(_data.data);
         $scope.user = _data.data;
-        console.log($scope.user);
       });
-    }
-    $scope.submit = function ($monEvent) {
-      Events.add($monEvent);
-    }
+    };
+
     $scope.addUser = function (user) {
-      User.addUser(user).then(function (_data_promise) {
+      User.addUser(user).then(function () {
         $scope.messageAdd = "Inscription effectuée";
       });
-    }
-
+    };
 
     EventsByUser.getEventsByUser({userId: $stateParams.userId}).then(function (_data) {
       $scope.user = _data.data;

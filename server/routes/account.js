@@ -3,8 +3,14 @@ var Generic = require('./generic')
 
 
 
-exports.getProfile = function(req,res){
+exports.getProfileById = function(req,res){
   accountService.getProfileById(req.params.id, function (err, result) {
+    Generic.computeResponse(res, err, result);
+  });
+};
+
+exports.getProfiles = function(req,res){
+  accountService.getProfiles(function (err, result) {
     Generic.computeResponse(res, err, result);
   });
 };

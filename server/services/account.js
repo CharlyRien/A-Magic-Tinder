@@ -1,11 +1,9 @@
 var accountModel = require('../models/accountModel');
 
 exports.addProfile = function (result, callback) {
-  console.log(result);
   var releaseMongoDB = new accountModel({
     username: result.mail,
-    password: result.mdp,
-    events:result.events
+    password: result.mdp
   });
   releaseMongoDB.save(callback);
 };
@@ -13,6 +11,14 @@ exports.addProfile = function (result, callback) {
 exports.getProfileById = function (result, fn) {
   accountModel.findOne({'_id': result}, function (err, data) {
     if (err) return fn(new Error('Could not find this User'));
+    fn(null, data);
+  });
+};
+
+
+exports.getProfiles = function (fn) {
+  accountModel.find({}, function (err, data) {
+    if (err) return fn(new Error('Could not find Users'));
     fn(null, data);
   });
 };

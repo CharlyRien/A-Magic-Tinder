@@ -43,13 +43,12 @@ angular.module('starter.services', [])
       checkConnection: function (User) {
         return $http.post(
           BASE_URL + "/api/user", User);
-
       },
 
-      addUser : function(user) {
+      addUser: function (user) {
         return $http.post(
           BASE_URL + "/api/user", user);
-        }
-
       }
+
+    }
   });

@@ -10,9 +10,9 @@ exports.configure = function (app) {
   app.post("/events", events.addEvent);
 
   // API EventByUser
-  app.get("/user/:userId", account.getProfile);
+  app.get("/user/:userId", account.getProfileById);
+  app.get("/user", account.getProfiles);
   app.post("/user", account.addProfile);
-
 
   //app.get('/login', function (req, res) {
   //  req.login();
@@ -53,15 +53,3 @@ exports.configure = function (app) {
 
 
 };
-
-// route middleware to make sure a user is logged in
-function isLoggedIn(req, res, next) {
-
-  // if user is authenticated in the session, carry on
-  if (req.isAuthenticated())
-    return next();
-
-  // if they aren't redirect them to the home page
-  res.render("Not authenticated");
-}
-
