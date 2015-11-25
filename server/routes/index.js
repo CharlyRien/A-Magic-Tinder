@@ -12,6 +12,7 @@ exports.configure = function (app) {
   // API EventByUser
   app.get("/user/:userId", account.getProfileById);
   app.get("/user", account.getProfiles);
+  app.delete("user/:userId", account.deleteProfileById);
   app.post("/user", account.addProfile);
 
   //app.get('/login', function (req, res) {

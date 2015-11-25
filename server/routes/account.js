@@ -21,8 +21,8 @@ exports.addProfile = function(req,res){
   });
 };
 
-exports.deleteProfile = function(req,res){
-  accountService.addEvent(req.body, function (err, result) {
+exports.deleteProfileById = function(req,res){
+  accountService.deleteProfileById(req.params.id, function (err, result) {
     Generic.computeResponse(res, err, result);
   });
 };

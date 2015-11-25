@@ -4,6 +4,15 @@ angular.module('starter.controllers', [])
   })
 
   .controller('EventsCtrl', function ($scope, Events) {
+    $scope.changeData = false;
+
+    //Watch datas , refresh !
+    $scope.$watch('changeData', function(){
+      Events.all().then(function (_data) {
+        $scope.events = _data.data;
+      });
+    });
+
     Events.all().then(function (_data) {
       $scope.events = _data.data;
     });
@@ -17,15 +26,15 @@ angular.module('starter.controllers', [])
 
   .controller('AddEventCtrl', function($scope, Events){
     $scope.submit = function ($monEvent) {
-      Events.add($monEvent);
+      Events.add($monEvent).then(function(){
+          $scope.changeData = !$scope.changeData;
+        }
+      );
+
     };
     $scope.event = {
       image: ''
     };
-  })
-  .controller('AccountCtrl', function ($scope, $stateParams, EventsByUser, User) {
-
-
     $scope.clientSideList = [
       {text: "img/CSGO.jpg", value: "img/CSGO.jpg"},
       {text: "img/League_Of_Legends.jpg", value: "img/League_Of_Legends.jpg"},
@@ -34,6 +43,8 @@ angular.module('starter.controllers', [])
       {text: "img/manette.jpeg", value: "img/manette.jpeg"},
       {text: "img/pc.png", value: "img/pc.png"}
     ];
+  })
+  .controller('AccountCtrl', function ($scope, $stateParams, EventsByUser, User) {
     $scope.connection = function ($monUser) {
       User.checkConnection($monUser).then(function (_data) {
         console.log(_data.data);
@@ -41,13 +52,18 @@ angular.module('starter.controllers', [])
       });
     };
 
+    $scope.deleteUser = function (user) {
+      User.deleteUser(user).then(function () {
+        $scope.messageDelete = "Suppresion effectuée";
+      });
+    };
     $scope.addUser = function (user) {
       User.addUser(user).then(function () {
         $scope.messageAdd = "Inscription effectuée";
       });
     };
 
-    EventsByUser.getEventsByUser({userId: $stateParams.userId}).then(function (_data) {
+    EventsByUser.getUserById({userId: $stateParams.userId}).then(function (_data) {
       $scope.user = _data.data;
     });
   });

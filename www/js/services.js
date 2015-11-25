@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
   .factory('Events', function ($http) {
-    var BASE_URL = "http://10.33.2.128:5000";
+    var BASE_URL = "http://gametinder-parpotait.rhcloud.com";
     return {
       all: function () {
         var url = BASE_URL + "/api/events";
@@ -24,9 +24,9 @@ angular.module('starter.services', [])
     };
   })
   .factory('EventsByUser', function ($http) {
-    var BASE_URL = "http://10.33.2.128:5000";
+    var BASE_URL = "http://gametinder-parpotait.rhcloud.com";
     return {
-      getEventsByUser: function (ObjectIdUser) {
+      getUserById: function (ObjectIdUser) {
         return $http({
           url: BASE_URL + "/api/user/" + ObjectIdUser.userId,
           method: "GET",
@@ -38,7 +38,7 @@ angular.module('starter.services', [])
     }
   })
   .factory('User', function ($http) {
-    var BASE_URL = "http://10.33.2.128:5000";
+    var BASE_URL = "http://gametinder-parpotait.rhcloud.com";
     return {
       checkConnection: function (User) {
         return $http.post(
@@ -48,6 +48,16 @@ angular.module('starter.services', [])
       addUser: function (user) {
         return $http.post(
           BASE_URL + "/api/user", user);
+      },
+
+      deleteUser: function (ObjectId) {
+        return $http({
+          url: BASE_URL + "/api/user/" + ObjectId.userId,
+          method: "DELETE",
+          params: {
+            id : ObjectId.userId
+          }
+        })
       }
 
     }

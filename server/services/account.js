@@ -15,7 +15,14 @@ exports.getProfileById = function (result, fn) {
   });
 };
 
+exports.deleteProfileById = function (result, fn) {
+  accountModel.remove({'_id': result}, function (err, data) {
+    if (err) return fn(new Error('Could not find this User'));
+    fn(null, "Bien supprimé");
+  });
+};
 
+//unused
 exports.getProfiles = function (fn) {
   accountModel.find({}, function (err, data) {
     if (err) return fn(new Error('Could not find Users'));
