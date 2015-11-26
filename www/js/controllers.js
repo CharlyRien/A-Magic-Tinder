@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
     $scope.changeData = false;
 
     //Watch datas , refresh !
-    $scope.$watch('changeData', function(){
+    $scope.$on('changeData', function () {
       Events.all().then(function (_data) {
         $scope.events = _data.data;
       });
@@ -19,15 +19,15 @@ angular.module('starter.controllers', [])
   })
 
   .controller('EventDetailCtrl', function ($scope, $stateParams, Events) {
-    Events.get({eventId: $stateParams.eventId}).then(function (_data) {
-      $scope.event = _data.data;
+    Events.get({eventId: $stateParams.eventId}).success(function (_data) {
+      $scope.event = _data;
     });
   })
 
-  .controller('AddEventCtrl', function($scope, Events){
+  .controller('AddEventCtrl', function ($scope, Events) {
     $scope.submit = function ($monEvent) {
-      Events.add($monEvent).then(function(){
-          $scope.changeData = !$scope.changeData;
+      Events.add($monEvent).then(function () {
+          $scope.$broadcast('changeData')
         }
       );
 
@@ -44,11 +44,15 @@ angular.module('starter.controllers', [])
       {text: "img/pc.png", value: "img/pc.png"}
     ];
   })
-  .controller('AccountCtrl', function ($scope, $stateParams, EventsByUser, User) {
+  .controller('AccountCtrl', function ($scope,$rootScope, $stateParams, EventsByUser, User, $state) {
+
+    $scope.userHere = false;
+
     $scope.connection = function ($monUser) {
-      User.checkConnection($monUser).then(function (_data) {
-        console.log(_data.data);
-        $scope.user = _data.data;
+      User.checkConnection($monUser).success(function (_data) {
+        $rootScope.user = _data.data;
+        $rootScope.userHere = true;
+        $state.go('tab.get-events-user');
       });
     };
 
@@ -58,8 +62,10 @@ angular.module('starter.controllers', [])
       });
     };
     $scope.addUser = function (user) {
-      User.addUser(user).then(function () {
+      User.addUser(user).success(function () {
         $scope.messageAdd = "Inscription effectuée";
+        $scope.userHere = true;
+        $state.go('tab.account');
       });
     };
 
