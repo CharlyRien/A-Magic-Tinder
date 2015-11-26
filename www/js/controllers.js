@@ -3,11 +3,11 @@ angular.module('starter.controllers', [])
   .controller('DashCtrl', function ($scope) {
   })
 
-  .controller('EventsCtrl', function ($scope, Events) {
+  .controller('EventsCtrl', function ($rootScope, $scope, Events) {
     $scope.changeData = false;
 
     //Watch datas , refresh !
-    $scope.$on('changeData', function () {
+    $rootScope.$on('changeData', function () {
       Events.all().then(function (_data) {
         $scope.events = _data.data;
       });
@@ -24,10 +24,10 @@ angular.module('starter.controllers', [])
     });
   })
 
-  .controller('AddEventCtrl', function ($scope, Events) {
+  .controller('AddEventCtrl', function ($rootScope,$scope, Events) {
     $scope.submit = function ($monEvent) {
       Events.add($monEvent).then(function () {
-          $scope.$broadcast('changeData')
+          $rootScope.$broadcast('changeData')
         }
       );
 
