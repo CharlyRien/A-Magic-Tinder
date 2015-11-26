@@ -24,13 +24,12 @@ angular.module('starter.controllers', [])
     });
   })
 
-  .controller('AddEventCtrl', function ($rootScope,$scope, Events) {
+  .controller('AddEventCtrl', function ($state, $rootScope, $scope, Events) {
     $scope.submit = function ($monEvent) {
       Events.add($monEvent).then(function () {
-          $rootScope.$broadcast('changeData')
-        }
-      );
-
+        $rootScope.$broadcast('changeData');
+        $state.go('tab.events');
+      });
     };
     $scope.event = {
       image: ''
@@ -44,7 +43,7 @@ angular.module('starter.controllers', [])
       {text: "img/pc.png", value: "img/pc.png"}
     ];
   })
-  .controller('AccountCtrl', function ($scope,$rootScope, $stateParams, EventsByUser, User, $state) {
+  .controller('AccountCtrl', function ($scope, $rootScope, $stateParams, EventsByUser, User, $state) {
 
     $scope.userHere = false;
 
@@ -64,7 +63,7 @@ angular.module('starter.controllers', [])
     $scope.addUser = function (user) {
       User.addUser(user).success(function () {
         $scope.messageAdd = "Inscription effectuée";
-        $scope.userHere = true;
+        $rootScope.userHere = true;
         $state.go('tab.account');
       });
     };
